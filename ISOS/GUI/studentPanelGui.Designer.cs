@@ -72,6 +72,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "studentPanelGui";
             this.Text = "Internetowy System Obsługi Studenta - Panel Studenta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.studentPanelGui_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.studentPanelGui_FormClosed);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();

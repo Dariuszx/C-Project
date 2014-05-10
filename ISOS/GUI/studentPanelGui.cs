@@ -12,7 +12,6 @@ namespace ISOS.GUI
 {
     public partial class studentPanelGui : Form
     {
-
         private Engine main;
 
         public studentPanelGui( Engine main )
@@ -27,6 +26,14 @@ namespace ISOS.GUI
         private void studentPanelGui_FormClosed(object sender, FormClosedEventArgs e)
         {
             main.logOut();
+        }
+
+        private void studentPanelGui_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GUI.yesNoDialog optionDialog = new GUI.yesNoDialog();
+            optionDialog.ShowDialog(this);
+
+            if (optionDialog.optionChoosen == false) e.Cancel = true;
         }
     }
 }

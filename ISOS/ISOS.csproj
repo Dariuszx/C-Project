@@ -61,6 +61,12 @@
   <ItemGroup>
     <Compile Include="Data\Users\UserProperties.cs" />
     <Compile Include="Data\Users\UserList.cs" />
+    <Compile Include="GUI\Dialogs\yesNoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Dialogs\yesNoDialog.Designer.cs">
+      <DependentUpon>yesNoDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\messageWindowGui.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Modules\ModulLogowania\ModulLogowania.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Dialogs\yesNoDialog.resx">
+      <DependentUpon>yesNoDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\loginWindowGui.resx">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
     </EmbeddedResource>
