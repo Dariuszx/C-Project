@@ -11,16 +11,18 @@ namespace ISOS.Data
         public String nickname;
         public String permissions;
         public String password;
+        public String name;
+        public String surname;
+        public String email;
 
-        public User(String nickname, String password, String permissions)
+        public User(String nickname, String password, String permissions, String name, String surname, String email)
         {
             this.nickname = nickname;
             this.password = password;
             this.permissions = permissions;
-        }
-
-        public User()
-        {
+            this.name = name;
+            this.surname = surname;
+            this.email = email;
         }
 
         public void clearData()

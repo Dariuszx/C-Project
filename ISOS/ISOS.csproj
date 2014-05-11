@@ -65,7 +65,6 @@
     <Compile Include="Data\Przedmiot.cs" />
     <Compile Include="Data\Student.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="Data\Users\UserList.cs" />
     <Compile Include="Data\Wykladowca.cs" />
     <Compile Include="GUI\Dialogs\yesNoDialog.cs">
       <SubType>Form</SubType>
@@ -92,8 +91,15 @@
     <Compile Include="GUI\loginWindowGui.Designer.cs">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\ModulBazaDanych\ModulBazaDanych.cs" />
-    <Compile Include="Modules\ModulLogowania\ModulLogowania.cs" />
+    <Compile Include="GUI\Windows\pokazListeWykladowcow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\pokazListeWykladowcow.Designer.cs">
+      <DependentUpon>pokazListeWykladowcow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ModulBazaDanych.cs" />
+    <Compile Include="Modules\ModulLogowania.cs" />
+    <Compile Include="Modules\ModulWczytywanieDanych.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Dialogs\yesNoDialog.resx">
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\studentPanelGui.resx">
       <DependentUpon>studentPanelGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\pokazListeWykladowcow.resx">
+      <DependentUpon>pokazListeWykladowcow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -147,6 +156,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

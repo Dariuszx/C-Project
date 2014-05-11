@@ -4,54 +4,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ISOS.Data;
+using ISOS.Modules;
 
 namespace ISOS
 {
     public class Engine
     {
-        public Data.User accountPreferences; //Preference konta użytkownika
-        public ModulLogowania login; //Moduł logowania
-        public Data.Users.UserList users; //Lista wszystkich użytkowników
+        public ModulLogowania loginModul; //Moduł logowania
+        public ModulBazaDanych bazaDanych; //Baza użytkowników systemu
 
         public Engine()
         {
-            accountPreferences = new Data.User();
-            users = new Data.Users.UserList();
-            login = new ModulLogowania(users, accountPreferences);
+            bazaDanych = new ModulBazaDanych();
+            loginModul = new ModulLogowania(bazaDanych); 
+
+            //Wczytuje dane TODO podłączyć się do bazy danych!
+            new Modules.ModulWczytywanieDanych(bazaDanych).wczytajStatyczneDane();
         }
 
         public String connect(String nick, String password)
         {
-            return login.connect(nick, password); 
+            return loginModul.connect(nick, password); 
         }
 
         public void logOut()
         {
-            login.isLoggedIn = false;
-            accountPreferences.clearData();
+            loginModul.logOut();
         }
 
         public bool modulLogowania()
         {
             Application.Run( new loginGui(this) );
-            return login.isLoggedIn;
+            return loginModul.isLogged;
         }
 
         public void modulUzytkownika()
         {
-            if (accountPreferences.permissions.Equals("student"))
+            if (loginModul.zalogowanyUzytkownik.permissions.Equals("student"))
             {
                 Application.Run(new GUI.studentPanelGui( this ));
-                accountPreferences.clearData();
+                loginModul.zalogowanyUzytkownik = null;
             }
-            else if (accountPreferences.permissions.Equals("dziekan"))
+            else if (loginModul.zalogowanyUzytkownik.permissions.Equals("dziekan"))
             {
                 //TODO
             }
-            else if (accountPreferences.permissions.Equals("panizdziekanatu"))
+            else if (loginModul.zalogowanyUzytkownik.permissions.Equals("panizdziekanatu"))
             {
                 //TODO
             }
         }
+
+
     }
 }

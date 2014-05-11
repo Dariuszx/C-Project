@@ -17,6 +17,9 @@ namespace ISOS.Data
         public Student(User u)
         {
             this.user = u;
+            przedmiotyZapisane = new ArrayList();
+            konsultacjeZapisane = new ArrayList();
+            oceny = new ArrayList();
         }
 
         public Przedmiot getPrzedmiotZapisany(String przedmiotid)
@@ -55,6 +58,12 @@ namespace ISOS.Data
                 if (d.przedmiotId.Equals(przedmiotId)) oceny.RemoveAt(index);
                 index++;
             }
+        }
+
+        public void zapiszNaPrzedmiot(Przedmiot p)
+        {
+            przedmiotyZapisane.Add( p );
+            oceny.Add(new DziennikOcen(p.id));
         }
 
         public void wypiszZPrzedmiotu(String przedmiotId)

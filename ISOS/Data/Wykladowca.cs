@@ -36,5 +36,11 @@ namespace ISOS.Data
             }
             index++;
         }
+
+      
+        public override String ToString()
+        {
+            return user.name + " " + user.surname;
+        }
     }
 }

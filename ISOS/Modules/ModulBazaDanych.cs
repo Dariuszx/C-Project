@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ISOS.Data;
 using System.Collections;
 
-namespace ISOS.Modules.ModulBazaDanych
+namespace ISOS.Modules
 {
     public class ModulBazaDanych
     {
@@ -15,6 +15,15 @@ namespace ISOS.Modules.ModulBazaDanych
         public ArrayList przedmioty;
         public ArrayList wykladowcy;
         public ArrayList konsultacje;
+
+        public ModulBazaDanych()
+        {
+            users = new ArrayList();
+            students = new ArrayList();
+            przedmioty = new ArrayList();
+            wykladowcy = new ArrayList();
+            konsultacje = new ArrayList();
+        }
 
         public User getUser(String nick)
         {
@@ -25,10 +34,35 @@ namespace ISOS.Modules.ModulBazaDanych
             return null;
         }
 
+        public User getUser(String nick, String password)
+        {
+            foreach (User u in users)
+            {
+                if (u.nickname.Equals(nick) && u.password.Equals(password))
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+
         public Student getStudent(String nick)
         {
             foreach(Student s in students) {
                 if (s.user.nickname.Equals(nick)) return s;
+            }
+
+            return null;
+        }
+
+        public Wykladowca getWykladowca(int index)
+        {
+            int i = 0;
+
+            foreach (Wykladowca w in wykladowcy)
+            {
+                if (index == i) return w;
+                i++;
             }
 
             return null;

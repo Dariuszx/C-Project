@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ISOS.GUI.Windows;
 
 namespace ISOS.GUI
 {
@@ -20,7 +21,10 @@ namespace ISOS.GUI
 
             InitializeComponent();
 
-            nickStatusLabel.Text = main.accountPreferences.nickname;
+            imieNazwiskoLabel.Text = main.loginModul.zalogowanyUzytkownik.name + " " + main.loginModul.zalogowanyUzytkownik.surname;
+            nazwaUzytkownikaLabel.Text = main.loginModul.zalogowanyUzytkownik.nickname;
+            emailLabel.Text = main.loginModul.zalogowanyUzytkownik.email;
+            nickStatusLabel.Text = main.loginModul.zalogowanyUzytkownik.nickname;
         }
 
         private void studentPanelGui_FormClosed(object sender, FormClosedEventArgs e)
@@ -35,5 +39,12 @@ namespace ISOS.GUI
 
             if (optionDialog.optionChoosen == false) e.Cancel = true;
         }
+
+        private void pokazWykladowcowButton_Click(object sender, EventArgs e)
+        {
+            pokazListeWykladowcow pokazListeDialog = new pokazListeWykladowcow(main);
+            pokazListeDialog.ShowDialog(this);
+        }
+
     }
 }
