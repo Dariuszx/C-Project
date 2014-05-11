@@ -59,19 +59,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Users\UserProperties.cs" />
+    <Compile Include="Data\DziennikOcen.cs" />
+    <Compile Include="Data\Konsultacje.cs" />
+    <Compile Include="Data\Ocena.cs" />
+    <Compile Include="Data\Przedmiot.cs" />
+    <Compile Include="Data\Student.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Data\Users\UserList.cs" />
+    <Compile Include="Data\Wykladowca.cs" />
     <Compile Include="GUI\Dialogs\yesNoDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Dialogs\yesNoDialog.Designer.cs">
       <DependentUpon>yesNoDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\messageWindowGui.cs">
+    <Compile Include="GUI\Dialogs\messageDialogGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\messageWindowGui.Designer.cs">
-      <DependentUpon>messageWindowGui.cs</DependentUpon>
+    <Compile Include="GUI\Dialogs\messageDialogGui.Designer.cs">
+      <DependentUpon>messageDialogGui.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\studentPanelGui.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,7 @@
     <Compile Include="GUI\loginWindowGui.Designer.cs">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ModulBazaDanych\ModulBazaDanych.cs" />
     <Compile Include="Modules\ModulLogowania\ModulLogowania.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,8 +102,8 @@
     <EmbeddedResource Include="GUI\loginWindowGui.resx">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\messageWindowGui.resx">
-      <DependentUpon>messageWindowGui.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Dialogs\messageDialogGui.resx">
+      <DependentUpon>messageDialogGui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\studentPanelGui.resx">
       <DependentUpon>studentPanelGui.cs</DependentUpon>

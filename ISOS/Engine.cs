@@ -9,13 +9,13 @@ namespace ISOS
 {
     public class Engine
     {
-        public Data.Users.UserProperties accountPreferences; //Preference konta użytkownika
+        public Data.User accountPreferences; //Preference konta użytkownika
         public ModulLogowania login; //Moduł logowania
         public Data.Users.UserList users; //Lista wszystkich użytkowników
 
         public Engine()
         {
-            accountPreferences = new Data.Users.UserProperties();
+            accountPreferences = new Data.User();
             users = new Data.Users.UserList();
             login = new ModulLogowania(users, accountPreferences);
         }

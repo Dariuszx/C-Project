@@ -1,6 +1,6 @@
 ﻿namespace ISOS.GUI
 {
-    partial class messageWindowGui
+    partial class messageDialogGui
     {
         /// <summary>
         /// Required designer variable.

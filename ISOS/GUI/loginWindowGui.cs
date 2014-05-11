@@ -32,7 +32,7 @@ namespace ISOS
             {
                 loginInput.Text = null;
                 passwordInput.Text = null;
-                Form messageWindow = new GUI.messageWindowGui( errorMessage, "Błąd logowania");
+                Form messageWindow = new GUI.messageDialogGui( errorMessage, "Błąd logowania");
                 messageWindow.ShowDialog(this);
             }
             else

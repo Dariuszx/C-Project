@@ -9,10 +9,10 @@ namespace ISOS
     {
 
         public bool isLoggedIn = false;
-        private Data.Users.UserProperties accountPreferences;
+        private Data.User accountPreferences;
         private Data.Users.UserList users;
 
-        public ModulLogowania( Data.Users.UserList users, Data.Users.UserProperties accountPreferences)
+        public ModulLogowania( Data.Users.UserList users, Data.User accountPreferences)
         {
             this.users = users;
             this.accountPreferences = accountPreferences;

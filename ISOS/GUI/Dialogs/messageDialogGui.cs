@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ISOS.GUI
 {
-    public partial class messageWindowGui : Form
+    public partial class messageDialogGui : Form
     {
 
-        public messageWindowGui( String message, String title )
+        public messageDialogGui( String message, String title )
         {  
             InitializeComponent();
             titleLabel.Text = title;
