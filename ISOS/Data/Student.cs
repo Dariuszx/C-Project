@@ -55,9 +55,11 @@ namespace ISOS.Data
             int index = 0;
             foreach (DziennikOcen d in oceny)
             {
-                if (d.przedmiotId.Equals(przedmiotId)) oceny.RemoveAt(index);
+                if (d.przedmiotId.Equals(przedmiotId)) break;
                 index++;
             }
+
+            oceny.RemoveAt(index);
         }
 
         public void zapiszNaPrzedmiot(Przedmiot p)
@@ -66,28 +68,37 @@ namespace ISOS.Data
             oceny.Add(new DziennikOcen(p.id));
         }
 
+        public void zapiszNaKonsultacje( Konsultacje k)
+        {
+            konsultacjeZapisane.Add(k);
+        }
+
         public void wypiszZPrzedmiotu(String przedmiotId)
         {
             int index = 0;
             foreach (Przedmiot p in przedmiotyZapisane)
             {
-                if (p.id.Equals(przedmiotId)) przedmiotyZapisane.RemoveAt(index);
+                if (p.id.Equals(przedmiotId)) break;
                     index++;
             }
+
+            przedmiotyZapisane.RemoveAt(index);
 
         }
 
         public void wypiszZKonsultacji(String przedmiotId)
         {
+
             int index = 0;
 
-            foreach (Konsultacje k in konsultacjeZapisane)
+            foreach(Konsultacje k in konsultacjeZapisane)
             {
-                if (k.przedmiot.id.Equals(przedmiotId)) konsultacjeZapisane.RemoveAt(index);
+                if (k.przedmiot.id.Equals(przedmiotId)) break;
                 index++;
             }
-        }
 
+            konsultacjeZapisane.RemoveAt(index);
+        }
 
     }
 }

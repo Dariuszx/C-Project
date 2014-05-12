@@ -10,5 +10,16 @@ namespace ISOS.Data
     {
         public Przedmiot przedmiot;
         public String czasKonsultacji;
+
+        public Konsultacje(Przedmiot p, String czasKonsultacji)
+        {
+            this.czasKonsultacji = czasKonsultacji;
+            this.przedmiot = p;
+        }
+
+        public String getPrzedmiotId()
+        {
+            return przedmiot.id;
+        }
     }
 }

@@ -77,6 +77,11 @@ namespace ISOS.Modules
             return null;
         }
 
+        public ArrayList getWykladowcy()
+        {
+            return wykladowcy;
+        }
+
         public Przedmiot getPrzedmiot(String przedmiotId)
         {
             foreach (Przedmiot p in przedmioty)
@@ -93,6 +98,11 @@ namespace ISOS.Modules
                 if (k.przedmiot.id.Equals(przedmiotId)) return k;
             }
             return null;
+        }
+
+        public ArrayList getKonsultacjArrayList(String wykladowcaNick)
+        {
+            return getWykladowca(wykladowcaNick).konsultacje;
         }
 
         public void addUser(User u) {
@@ -225,6 +235,11 @@ namespace ISOS.Modules
         public void studentWypiszZKonsultacji(String nick, String przedmiotId)
         {
             getStudent(nick).wypiszZKonsultacji(przedmiotId);
+        }
+
+        public Konsultacje studentGetKonsultacjeZapisane(String nick, String przedmiotId)
+        {
+            return getStudent(nick).getKonsultacjeZapisany(przedmiotId);
         }
 
     }

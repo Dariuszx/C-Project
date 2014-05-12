@@ -31,7 +31,14 @@ namespace ISOS.Modules
             bazaDanych.addWykladowca(bazaDanych.getUser("jkowalski"));
 
             bazaDanych.addPrzedmiot("jstar", "JiMP", "jimp");
+            bazaDanych.addPrzedmiot("jstar", "Teoria Obwodów i Sygnałów", "tois");
             bazaDanych.getStudent("dariuszDybka").zapiszNaPrzedmiot(bazaDanych.getPrzedmiot("jimp"));
+            bazaDanych.getStudent("dybkad").zapiszNaPrzedmiot(bazaDanych.getPrzedmiot("tois"));
+
+            bazaDanych.getWykladowca("jstar").addKonsultacje(bazaDanych.getPrzedmiot("tois"), "jeszcze Kiedyś (:");
+            bazaDanych.getWykladowca("jstar").addKonsultacje(bazaDanych.getPrzedmiot("jimp"), "Kiedyś (:");
+
+            bazaDanych.studentZapiszNaKonsultacje("dybkad", "jstar", "jimp");
             
         }
         

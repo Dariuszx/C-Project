@@ -39,6 +39,9 @@
             this.imieLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.edytujButton = new System.Windows.Forms.Button();
+            this.usunButton = new System.Windows.Forms.Button();
+            this.zapiszNaKonsultacjeButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +63,7 @@
             this.listaWykladowcow.FormattingEnabled = true;
             this.listaWykladowcow.Location = new System.Drawing.Point(12, 34);
             this.listaWykladowcow.Name = "listaWykladowcow";
-            this.listaWykladowcow.Size = new System.Drawing.Size(235, 119);
+            this.listaWykladowcow.Size = new System.Drawing.Size(282, 119);
             this.listaWykladowcow.TabIndex = 7;
             // 
             // label6
@@ -75,7 +78,7 @@
             // 
             // pokazInformacjeButton
             // 
-            this.pokazInformacjeButton.Location = new System.Drawing.Point(128, 159);
+            this.pokazInformacjeButton.Location = new System.Drawing.Point(175, 159);
             this.pokazInformacjeButton.Name = "pokazInformacjeButton";
             this.pokazInformacjeButton.Size = new System.Drawing.Size(119, 23);
             this.pokazInformacjeButton.TabIndex = 8;
@@ -94,7 +97,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.groupBox1.Location = new System.Drawing.Point(280, 29);
+            this.groupBox1.Location = new System.Drawing.Point(330, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(284, 124);
             this.groupBox1.TabIndex = 9;
@@ -161,12 +164,43 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Email";
             // 
+            // edytujButton
+            // 
+            this.edytujButton.Location = new System.Drawing.Point(94, 159);
+            this.edytujButton.Name = "edytujButton";
+            this.edytujButton.Size = new System.Drawing.Size(75, 23);
+            this.edytujButton.TabIndex = 10;
+            this.edytujButton.Text = "Edytuj";
+            this.edytujButton.UseVisualStyleBackColor = true;
+            // 
+            // usunButton
+            // 
+            this.usunButton.Location = new System.Drawing.Point(13, 159);
+            this.usunButton.Name = "usunButton";
+            this.usunButton.Size = new System.Drawing.Size(75, 23);
+            this.usunButton.TabIndex = 11;
+            this.usunButton.Text = "Usuń";
+            this.usunButton.UseVisualStyleBackColor = true;
+            // 
+            // zapiszNaKonsultacjeButton
+            // 
+            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(469, 159);
+            this.zapiszNaKonsultacjeButton.Name = "zapiszNaKonsultacjeButton";
+            this.zapiszNaKonsultacjeButton.Size = new System.Drawing.Size(145, 22);
+            this.zapiszNaKonsultacjeButton.TabIndex = 12;
+            this.zapiszNaKonsultacjeButton.Text = "Zapisz się na konsultacje";
+            this.zapiszNaKonsultacjeButton.UseVisualStyleBackColor = true;
+            this.zapiszNaKonsultacjeButton.Click += new System.EventHandler(this.zapiszNaKonsultacjeButton_Click);
+            // 
             // pokazListeWykladowcow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(574, 205);
+            this.ClientSize = new System.Drawing.Size(626, 205);
+            this.Controls.Add(this.zapiszNaKonsultacjeButton);
+            this.Controls.Add(this.usunButton);
+            this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pokazInformacjeButton);
             this.Controls.Add(this.listaWykladowcow);
@@ -193,5 +227,8 @@
         private System.Windows.Forms.Label nickLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label nazwiskoLabel;
+        private System.Windows.Forms.Button edytujButton;
+        private System.Windows.Forms.Button usunButton;
+        private System.Windows.Forms.Button zapiszNaKonsultacjeButton;
     }
 }

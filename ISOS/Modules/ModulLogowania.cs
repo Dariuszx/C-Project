@@ -15,6 +15,11 @@ namespace ISOS
         public User zalogowanyUzytkownik;
         private ModulBazaDanych bazaDanych;
 
+        public String getNicknameUserLoggedIn()
+        {
+            return zalogowanyUzytkownik.nickname;
+        }
+
         public ModulLogowania( Modules.ModulBazaDanych bazaDanych )
         {
             this.bazaDanych = bazaDanych;

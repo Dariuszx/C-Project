@@ -14,11 +14,18 @@ namespace ISOS.GUI.Windows
     public partial class pokazListeWykladowcow : Form
     {
         private Engine main;
+        private int indexSelected = 0;
 
         public pokazListeWykladowcow( Engine main)
         {
             this.main = main;
             InitializeComponent();
+
+            if (!main.loginModul.zalogowanyUzytkownik.permissions.Equals("dziekanat"))
+            {
+                edytujButton.Visible = false;
+                usunButton.Visible = false;
+            }
 
             uzupelnijListe();
         }
@@ -26,7 +33,7 @@ namespace ISOS.GUI.Windows
         public void uzupelnijListe()
         {
 
-            foreach (Wykladowca w in main.bazaDanych.wykladowcy)
+            foreach (Wykladowca w in main.bazaDanych.getWykladowcy())
             {
                 listaWykladowcow.Items.Add(w);
             }
@@ -43,18 +50,30 @@ namespace ISOS.GUI.Windows
         {
             int index = listaWykladowcow.SelectedIndex;
             Wykladowca w = main.bazaDanych.getWykladowca(index);
+
+            //Uzupełniam formularz informacji
             imieLabel.Text = w.user.name;
             nazwiskoLabel.Text = w.user.surname;
             emailLabel.Text = w.user.email;
             nickLabel.Text = w.user.nickname;
-            
+
+            if ( w.konsultacje.Count == 0 ) zapiszNaKonsultacjeButton.Visible = false;
+            else zapiszNaKonsultacjeButton.Visible = true;
         }
 
         private void pokazInformacjeButton_Click(object sender, EventArgs e)
         {
+            indexSelected = listaWykladowcow.SelectedIndex;
             pokazInformacje();
         }
 
+        private void zapiszNaKonsultacjeButton_Click(object sender, EventArgs e)
+        {
+            Wykladowca w = main.bazaDanych.getWykladowca(indexSelected);
+
+            pokazListeKonsultacji konsultacjeDialog = new pokazListeKonsultacji(main, w);
+            konsultacjeDialog.ShowDialog(this);
+        }
 
     }
 }
