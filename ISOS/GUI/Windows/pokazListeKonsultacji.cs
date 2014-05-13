@@ -43,7 +43,7 @@ namespace ISOS.GUI.Windows
 
         public void wyswietlOpcje()
         {
-            if (!main.loginModul.zalogowanyUzytkownik.permissions.Equals("student"))
+            if (main.loginModul.zalogowanyUzytkownik.permissions.Equals("student"))
             {
                 //Domyślne ustawienie przycisków
                 zapiszButton.Visible = true;

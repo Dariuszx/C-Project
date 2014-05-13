@@ -61,5 +61,16 @@ namespace ISOS.GUI
             }
         }
 
+        private void pokazListeButton_Click(object sender, EventArgs e)
+        {
+            pokazListeZapisanychPrzedmiotow listaPrzedmiotowZapisanych = new pokazListeZapisanychPrzedmiotow(main);
+            listaPrzedmiotowZapisanych.ShowDialog(this);
+        }
+
+        private void studentPanelGui_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

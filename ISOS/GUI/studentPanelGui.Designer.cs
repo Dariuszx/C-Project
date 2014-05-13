@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.nickStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -41,10 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pokazListeButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.zapiszNaKonsultacjeButton = new System.Windows.Forms.Button();
-            this.zapiszNaPrzedmiotButton = new System.Windows.Forms.Button();
             this.pokazWykladowcowButton = new System.Windows.Forms.Button();
             this.pokazListePrzedmiotowButton = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.statusBar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.nickStatusLabel});
-            this.statusBar.Location = new System.Drawing.Point(0, 327);
+            this.statusBar.Location = new System.Drawing.Point(0, 262);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(655, 22);
             this.statusBar.SizingGrip = false;
@@ -174,6 +174,7 @@
             this.pokazListeButton.TabIndex = 9;
             this.pokazListeButton.Text = "Pokaż liste";
             this.pokazListeButton.UseVisualStyleBackColor = true;
+            this.pokazListeButton.Click += new System.EventHandler(this.pokazListeButton_Click);
             // 
             // groupBox1
             // 
@@ -190,28 +191,6 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacje";
-            // 
-            // zapiszNaKonsultacjeButton
-            // 
-            this.zapiszNaKonsultacjeButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.zapiszNaKonsultacjeButton.ForeColor = System.Drawing.Color.Black;
-            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(36, 259);
-            this.zapiszNaKonsultacjeButton.Name = "zapiszNaKonsultacjeButton";
-            this.zapiszNaKonsultacjeButton.Size = new System.Drawing.Size(158, 23);
-            this.zapiszNaKonsultacjeButton.TabIndex = 12;
-            this.zapiszNaKonsultacjeButton.Text = "Zapisz się na konsultacje";
-            this.zapiszNaKonsultacjeButton.UseVisualStyleBackColor = true;
-            // 
-            // zapiszNaPrzedmiotButton
-            // 
-            this.zapiszNaPrzedmiotButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.zapiszNaPrzedmiotButton.ForeColor = System.Drawing.Color.Black;
-            this.zapiszNaPrzedmiotButton.Location = new System.Drawing.Point(36, 230);
-            this.zapiszNaPrzedmiotButton.Name = "zapiszNaPrzedmiotButton";
-            this.zapiszNaPrzedmiotButton.Size = new System.Drawing.Size(158, 23);
-            this.zapiszNaPrzedmiotButton.TabIndex = 11;
-            this.zapiszNaPrzedmiotButton.Text = "Zapisz się na przedmiot";
-            this.zapiszNaPrzedmiotButton.UseVisualStyleBackColor = true;
             // 
             // pokazWykladowcowButton
             // 
@@ -237,27 +216,35 @@
             this.pokazListePrzedmiotowButton.UseVisualStyleBackColor = true;
             this.pokazListePrzedmiotowButton.Click += new System.EventHandler(this.pokazListePrzedmiotowButton_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // studentPanelGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(655, 349);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(655, 284);
             this.Controls.Add(this.pokazListePrzedmiotowButton);
-            this.Controls.Add(this.zapiszNaKonsultacjeButton);
-            this.Controls.Add(this.zapiszNaPrzedmiotButton);
             this.Controls.Add(this.pokazWykladowcowButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pokazListeButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusBar);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "studentPanelGui";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Internetowy System Obsługi Studenta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.studentPanelGui_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.studentPanelGui_FormClosed);
+            this.Load += new System.EventHandler(this.studentPanelGui_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.studentPanelGui_KeyDown);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
@@ -283,9 +270,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button pokazListeButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button zapiszNaKonsultacjeButton;
-        private System.Windows.Forms.Button zapiszNaPrzedmiotButton;
         private System.Windows.Forms.Button pokazWykladowcowButton;
         private System.Windows.Forms.Button pokazListePrzedmiotowButton;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

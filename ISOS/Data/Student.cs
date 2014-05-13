@@ -31,6 +31,18 @@ namespace ISOS.Data
             return null;
         }
 
+        public Przedmiot getPrzedmiotZapisany(int index)
+        {
+            int i = 0;
+
+            foreach (Przedmiot p in przedmiotyZapisane)
+            {
+                if (i == index) return p;
+                i++;
+            }
+            return null;
+        }
+
         public Konsultacje getKonsultacjeZapisany(String przedmiotid)
         {
             foreach (Konsultacje k in konsultacjeZapisane)
