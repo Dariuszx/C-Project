@@ -18,6 +18,8 @@ namespace ISOS.GUI
         public yesNoDialog( )
         {
             InitializeComponent();
+            KeyPreview = true;
+            yesButton.Select();
         }
 
         private void noButton_Click(object sender, EventArgs e)
@@ -30,6 +32,14 @@ namespace ISOS.GUI
         {
             optionChoosen = true;
             this.Close();
+        }
+
+        private void yesNoDialog_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
     }

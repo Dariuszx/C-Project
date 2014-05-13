@@ -44,6 +44,7 @@
             this.zapiszNaKonsultacjeButton = new System.Windows.Forms.Button();
             this.zapiszNaPrzedmiotButton = new System.Windows.Forms.Button();
             this.pokazWykladowcowButton = new System.Windows.Forms.Button();
+            this.pokazListePrzedmiotowButton = new System.Windows.Forms.Button();
             this.statusBar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -194,7 +195,7 @@
             // 
             this.zapiszNaKonsultacjeButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.zapiszNaKonsultacjeButton.ForeColor = System.Drawing.Color.Black;
-            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(36, 230);
+            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(36, 259);
             this.zapiszNaKonsultacjeButton.Name = "zapiszNaKonsultacjeButton";
             this.zapiszNaKonsultacjeButton.Size = new System.Drawing.Size(158, 23);
             this.zapiszNaKonsultacjeButton.TabIndex = 12;
@@ -205,7 +206,7 @@
             // 
             this.zapiszNaPrzedmiotButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.zapiszNaPrzedmiotButton.ForeColor = System.Drawing.Color.Black;
-            this.zapiszNaPrzedmiotButton.Location = new System.Drawing.Point(36, 201);
+            this.zapiszNaPrzedmiotButton.Location = new System.Drawing.Point(36, 230);
             this.zapiszNaPrzedmiotButton.Name = "zapiszNaPrzedmiotButton";
             this.zapiszNaPrzedmiotButton.Size = new System.Drawing.Size(158, 23);
             this.zapiszNaPrzedmiotButton.TabIndex = 11;
@@ -224,12 +225,25 @@
             this.pokazWykladowcowButton.UseVisualStyleBackColor = true;
             this.pokazWykladowcowButton.Click += new System.EventHandler(this.pokazWykladowcowButton_Click);
             // 
+            // pokazListePrzedmiotowButton
+            // 
+            this.pokazListePrzedmiotowButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.pokazListePrzedmiotowButton.ForeColor = System.Drawing.Color.Black;
+            this.pokazListePrzedmiotowButton.Location = new System.Drawing.Point(36, 201);
+            this.pokazListePrzedmiotowButton.Name = "pokazListePrzedmiotowButton";
+            this.pokazListePrzedmiotowButton.Size = new System.Drawing.Size(158, 23);
+            this.pokazListePrzedmiotowButton.TabIndex = 14;
+            this.pokazListePrzedmiotowButton.Text = "Pokaż liste przedmiotów";
+            this.pokazListePrzedmiotowButton.UseVisualStyleBackColor = true;
+            this.pokazListePrzedmiotowButton.Click += new System.EventHandler(this.pokazListePrzedmiotowButton_Click);
+            // 
             // studentPanelGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(655, 349);
+            this.Controls.Add(this.pokazListePrzedmiotowButton);
             this.Controls.Add(this.zapiszNaKonsultacjeButton);
             this.Controls.Add(this.zapiszNaPrzedmiotButton);
             this.Controls.Add(this.pokazWykladowcowButton);
@@ -244,6 +258,7 @@
             this.Text = "Internetowy System Obsługi Studenta";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.studentPanelGui_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.studentPanelGui_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.studentPanelGui_KeyDown);
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -271,5 +286,6 @@
         private System.Windows.Forms.Button zapiszNaKonsultacjeButton;
         private System.Windows.Forms.Button zapiszNaPrzedmiotButton;
         private System.Windows.Forms.Button pokazWykladowcowButton;
+        private System.Windows.Forms.Button pokazListePrzedmiotowButton;
     }
 }

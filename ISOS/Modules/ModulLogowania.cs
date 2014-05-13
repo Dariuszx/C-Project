@@ -38,6 +38,24 @@ namespace ISOS
             return null;
         }
 
+        public bool isStudent()
+        {
+            if (zalogowanyUzytkownik.permissions.Equals("student")) return true;
+            else return false;
+        }
+
+        public bool isDziekanat()
+        {
+            if (zalogowanyUzytkownik.permissions.Equals("dziekanat")) return true;
+            else return false;
+        }
+
+        public bool isWykladowca()
+        {
+            if (zalogowanyUzytkownik.permissions.Equals("wykladowca")) return true;
+            else return false;
+        }
+
         public void logOut()
         {
             isLogged = false;

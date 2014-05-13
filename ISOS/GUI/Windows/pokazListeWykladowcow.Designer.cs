@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listaWykladowcow = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pokazInformacjeButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nickLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
@@ -61,10 +60,11 @@
             this.listaWykladowcow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listaWykladowcow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.listaWykladowcow.FormattingEnabled = true;
-            this.listaWykladowcow.Location = new System.Drawing.Point(12, 34);
+            this.listaWykladowcow.Location = new System.Drawing.Point(12, 17);
             this.listaWykladowcow.Name = "listaWykladowcow";
-            this.listaWykladowcow.Size = new System.Drawing.Size(282, 119);
+            this.listaWykladowcow.Size = new System.Drawing.Size(296, 119);
             this.listaWykladowcow.TabIndex = 7;
+            this.listaWykladowcow.SelectedIndexChanged += new System.EventHandler(this.listaWykladowcow_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -75,16 +75,6 @@
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Imie";
-            // 
-            // pokazInformacjeButton
-            // 
-            this.pokazInformacjeButton.Location = new System.Drawing.Point(175, 159);
-            this.pokazInformacjeButton.Name = "pokazInformacjeButton";
-            this.pokazInformacjeButton.Size = new System.Drawing.Size(119, 23);
-            this.pokazInformacjeButton.TabIndex = 8;
-            this.pokazInformacjeButton.Text = "Pokaż informacje";
-            this.pokazInformacjeButton.UseVisualStyleBackColor = true;
-            this.pokazInformacjeButton.Click += new System.EventHandler(this.pokazInformacjeButton_Click);
             // 
             // groupBox1
             // 
@@ -97,7 +87,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.groupBox1.Location = new System.Drawing.Point(330, 29);
+            this.groupBox1.Location = new System.Drawing.Point(330, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(284, 124);
             this.groupBox1.TabIndex = 9;
@@ -166,7 +156,7 @@
             // 
             // edytujButton
             // 
-            this.edytujButton.Location = new System.Drawing.Point(94, 159);
+            this.edytujButton.Location = new System.Drawing.Point(233, 143);
             this.edytujButton.Name = "edytujButton";
             this.edytujButton.Size = new System.Drawing.Size(75, 23);
             this.edytujButton.TabIndex = 10;
@@ -175,7 +165,7 @@
             // 
             // usunButton
             // 
-            this.usunButton.Location = new System.Drawing.Point(13, 159);
+            this.usunButton.Location = new System.Drawing.Point(152, 142);
             this.usunButton.Name = "usunButton";
             this.usunButton.Size = new System.Drawing.Size(75, 23);
             this.usunButton.TabIndex = 11;
@@ -184,7 +174,7 @@
             // 
             // zapiszNaKonsultacjeButton
             // 
-            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(469, 159);
+            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(469, 143);
             this.zapiszNaKonsultacjeButton.Name = "zapiszNaKonsultacjeButton";
             this.zapiszNaKonsultacjeButton.Size = new System.Drawing.Size(145, 22);
             this.zapiszNaKonsultacjeButton.TabIndex = 12;
@@ -197,17 +187,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(626, 205);
+            this.ClientSize = new System.Drawing.Size(626, 181);
             this.Controls.Add(this.zapiszNaKonsultacjeButton);
             this.Controls.Add(this.usunButton);
             this.Controls.Add(this.edytujButton);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.pokazInformacjeButton);
             this.Controls.Add(this.listaWykladowcow);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "pokazListeWykladowcow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pokaż listę wykładowców";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pokazListeWykladowcow_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -219,7 +209,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listaWykladowcow;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button pokazInformacjeButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label imieLabel;
         private System.Windows.Forms.Label label3;

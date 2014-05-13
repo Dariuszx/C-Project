@@ -21,6 +21,7 @@ namespace ISOS.GUI
 
             InitializeComponent();
 
+            KeyPreview = true;
             imieNazwiskoLabel.Text = main.loginModul.zalogowanyUzytkownik.name + " " + main.loginModul.zalogowanyUzytkownik.surname;
             nazwaUzytkownikaLabel.Text = main.loginModul.zalogowanyUzytkownik.nickname;
             emailLabel.Text = main.loginModul.zalogowanyUzytkownik.email;
@@ -44,6 +45,20 @@ namespace ISOS.GUI
         {
             pokazListeWykladowcow pokazListeDialog = new pokazListeWykladowcow(main);
             pokazListeDialog.ShowDialog(this);
+        }
+
+        private void pokazListePrzedmiotowButton_Click(object sender, EventArgs e)
+        {
+            pokazListePrzedmiotow oknoListaPrzedmiotow = new pokazListePrzedmiotow(main);
+            oknoListaPrzedmiotow.ShowDialog(this);
+        }
+
+        private void studentPanelGui_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
     }

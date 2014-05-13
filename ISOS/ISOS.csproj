@@ -91,6 +91,12 @@
     <Compile Include="GUI\loginWindowGui.Designer.cs">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Windows\pokazListePrzedmiotow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\pokazListePrzedmiotow.Designer.cs">
+      <DependentUpon>pokazListePrzedmiotow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Windows\pokazListeWykladowcow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\studentPanelGui.resx">
       <DependentUpon>studentPanelGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\pokazListePrzedmiotow.resx">
+      <DependentUpon>pokazListePrzedmiotow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Windows\pokazListeWykladowcow.resx">
       <DependentUpon>pokazListeWykladowcow.cs</DependentUpon>

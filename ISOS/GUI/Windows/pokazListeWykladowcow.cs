@@ -20,36 +20,45 @@ namespace ISOS.GUI.Windows
         {
             this.main = main;
             InitializeComponent();
+            KeyPreview = true;
+            uzupelnijListe();
+            if( listaWykladowcow.Items.Count != 0 ) listaWykladowcow.SetSelected(0, true);
+          
+        }
 
-            if (!main.loginModul.zalogowanyUzytkownik.permissions.Equals("dziekanat"))
+        public pokazListeWykladowcow(Engine main, int selectedIndex)
+        {
+            this.main = main;
+            this.indexSelected = selectedIndex;
+            InitializeComponent();
+            KeyPreview = true;
+            uzupelnijListe();
+            listaWykladowcow.SetSelected(selectedIndex, true);
+        }
+
+        private void uzupelnijListe()
+        {
+
+            //Wyświetlam tylko wymagane przyciski 
+            if (!main.loginModul.isDziekanat())
             {
                 edytujButton.Visible = false;
                 usunButton.Visible = false;
             }
-
-            uzupelnijListe();
-        }
-
-        public void uzupelnijListe()
-        {
 
             foreach (Wykladowca w in main.bazaDanych.getWykladowcy())
             {
                 listaWykladowcow.Items.Add(w);
             }
 
-            if (listaWykladowcow.Items.Count != 0)
-            {
-                listaWykladowcow.SetSelected(0, true);
-            }
+
 
             pokazInformacje();
         }
 
-        public void pokazInformacje()
+        private void pokazInformacje()
         {
-            int index = listaWykladowcow.SelectedIndex;
-            Wykladowca w = main.bazaDanych.getWykladowca(index);
+            Wykladowca w = main.bazaDanych.getWykladowca(indexSelected);
 
             //Uzupełniam formularz informacji
             imieLabel.Text = w.user.name;
@@ -59,6 +68,11 @@ namespace ISOS.GUI.Windows
 
             if ( w.konsultacje.Count == 0 ) zapiszNaKonsultacjeButton.Visible = false;
             else zapiszNaKonsultacjeButton.Visible = true;
+        }
+
+        private void updateIndexSelected()
+        {
+            indexSelected = listaWykladowcow.SelectedIndex;
         }
 
         private void pokazInformacjeButton_Click(object sender, EventArgs e)
@@ -73,6 +87,20 @@ namespace ISOS.GUI.Windows
 
             pokazListeKonsultacji konsultacjeDialog = new pokazListeKonsultacji(main, w);
             konsultacjeDialog.ShowDialog(this);
+        }
+
+        private void listaWykladowcow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateIndexSelected();
+            pokazInformacje();
+        }
+
+        private void pokazListeWykladowcow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
     }

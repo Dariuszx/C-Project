@@ -19,5 +19,10 @@ namespace ISOS.Data
             this.nazwa = nazwa;
             this.id = id;
         }
+
+        public String getWykladowcaNickname()
+        {
+            return wykladowca.getNickname();
+        }
     }
 }

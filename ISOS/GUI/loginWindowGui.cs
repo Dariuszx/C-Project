@@ -19,6 +19,7 @@ namespace ISOS
         {
             this.main = main;
             InitializeComponent();
+            KeyPreview = true;
             
         }
 
@@ -40,6 +41,14 @@ namespace ISOS
                 this.Close();
             }
 
+        }
+
+        private void loginGui_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
          
     }

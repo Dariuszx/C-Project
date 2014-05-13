@@ -77,6 +77,19 @@ namespace ISOS.Modules
             return null;
         }
 
+        //Zwraca indeks danego wykładowcy w tablicy ArrayList
+        public int getWykladowcaIndex(String wykladowcaNick)
+        {
+            int index = 0;
+
+            foreach (Wykladowca w in wykladowcy)
+            {
+                if (w.getNickname().Equals(wykladowcaNick)) return index;
+                index++;
+            }
+            return -1;
+        } 
+
         public ArrayList getWykladowcy()
         {
             return wykladowcy;
@@ -91,13 +104,21 @@ namespace ISOS.Modules
             return null;
         }
 
-        public Konsultacje getKonsultacje(String przedmiotId)
+        public Przedmiot getPrzedmiot(int index)
         {
-            foreach (Konsultacje k in konsultacje)
+            int i = 0;
+
+            foreach (Przedmiot k in przedmioty)
             {
-                if (k.przedmiot.id.Equals(przedmiotId)) return k;
+                if (i == index) return k;
+                i++;
             }
             return null;
+        }
+
+        public Konsultacje getKonsultacje(String przedmiotId)
+        {
+            return getPrzedmiot(przedmiotId).wykladowca.getKonsultacje(przedmiotId);
         }
 
         public ArrayList getKonsultacjArrayList(String wykladowcaNick)

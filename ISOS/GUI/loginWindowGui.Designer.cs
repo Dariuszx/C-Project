@@ -126,7 +126,8 @@
             this.MaximizeBox = false;
             this.Name = "loginGui";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ISOD"; 
+            this.Text = "ISOD";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginGui_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
