@@ -20,7 +20,6 @@ namespace ISOS
             this.main = main;
             InitializeComponent();
             KeyPreview = true;
-            
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -49,6 +48,11 @@ namespace ISOS
             {
                 this.Close();
             }
+        }
+
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
         }
          
     }
