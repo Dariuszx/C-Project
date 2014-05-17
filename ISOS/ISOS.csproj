@@ -78,11 +78,11 @@
     <Compile Include="GUI\Dialogs\messageDialogGui.Designer.cs">
       <DependentUpon>messageDialogGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\studentPanelGui.cs">
+    <Compile Include="GUI\mainUserPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\studentPanelGui.Designer.cs">
-      <DependentUpon>studentPanelGui.cs</DependentUpon>
+    <Compile Include="GUI\mainUserPanel.Designer.cs">
+      <DependentUpon>mainUserPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Engine.cs" />
     <Compile Include="GUI\loginWindowGui.cs">
@@ -90,6 +90,18 @@
     </Compile>
     <Compile Include="GUI\loginWindowGui.Designer.cs">
       <DependentUpon>loginWindowGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\edytujDodajPrzedmiot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\edytujDodajPrzedmiot.Designer.cs">
+      <DependentUpon>edytujDodajPrzedmiot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\edytujWykladowce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\edytujWykladowce.Designer.cs">
+      <DependentUpon>edytujWykladowce.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\pokazListeZapisanychPrzedmiotow.cs">
       <SubType>Form</SubType>
@@ -129,8 +141,14 @@
     <EmbeddedResource Include="GUI\Dialogs\messageDialogGui.resx">
       <DependentUpon>messageDialogGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\studentPanelGui.resx">
-      <DependentUpon>studentPanelGui.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\mainUserPanel.resx">
+      <DependentUpon>mainUserPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\edytujDodajPrzedmiot.resx">
+      <DependentUpon>edytujDodajPrzedmiot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\edytujWykladowce.resx">
+      <DependentUpon>edytujWykladowce.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Windows\pokazListePrzedmiotow.resx">
       <DependentUpon>pokazListePrzedmiotow.cs</DependentUpon>
@@ -186,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\background.jpg" />
+    <None Include="Resources\background2.png" />
     <Content Include="Resources\logo.png" />
     <Content Include="Resources\logo_ikonka.ico" />
   </ItemGroup>

@@ -35,7 +35,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(151, 79);
+            this.okButton.Location = new System.Drawing.Point(151, 67);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
@@ -64,18 +64,19 @@
             this.messageLabel.TabIndex = 2;
             this.messageLabel.Text = "Lorem ipsum tekst";
             // 
-            // messageWindowGui
+            // messageDialogGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(375, 131);
+            this.ClientSize = new System.Drawing.Size(375, 104);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.okButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "messageWindowGui";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "messageDialogGui";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.messageDialogGui_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

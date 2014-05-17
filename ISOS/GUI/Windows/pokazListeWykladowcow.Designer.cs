@@ -38,9 +38,10 @@
             this.imieLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.edytujButton = new System.Windows.Forms.Button();
-            this.usunButton = new System.Windows.Forms.Button();
-            this.zapiszNaKonsultacjeButton = new System.Windows.Forms.Button();
+            this.buttonEdytuj = new System.Windows.Forms.Button();
+            this.buttonUsun = new System.Windows.Forms.Button();
+            this.buttonZapiszSieNaKonsultacje = new System.Windows.Forms.Button();
+            this.buttonDodajWykladowce = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +98,7 @@
             // nickLabel
             // 
             this.nickLabel.AutoSize = true;
-            this.nickLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.nickLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.nickLabel.Location = new System.Drawing.Point(86, 96);
             this.nickLabel.Name = "nickLabel";
             this.nickLabel.Size = new System.Drawing.Size(45, 13);
@@ -107,7 +108,7 @@
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.emailLabel.Location = new System.Drawing.Point(86, 73);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(117, 13);
@@ -117,7 +118,7 @@
             // nazwiskoLabel
             // 
             this.nazwiskoLabel.AutoSize = true;
-            this.nazwiskoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.nazwiskoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.nazwiskoLabel.Location = new System.Drawing.Point(86, 50);
             this.nazwiskoLabel.Name = "nazwiskoLabel";
             this.nazwiskoLabel.Size = new System.Drawing.Size(72, 13);
@@ -127,7 +128,7 @@
             // imieLabel
             // 
             this.imieLabel.AutoSize = true;
-            this.imieLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.imieLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.imieLabel.Location = new System.Drawing.Point(86, 28);
             this.imieLabel.Name = "imieLabel";
             this.imieLabel.Size = new System.Drawing.Size(50, 13);
@@ -154,43 +155,60 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Email";
             // 
-            // edytujButton
+            // buttonEdytuj
             // 
-            this.edytujButton.Location = new System.Drawing.Point(233, 143);
-            this.edytujButton.Name = "edytujButton";
-            this.edytujButton.Size = new System.Drawing.Size(75, 23);
-            this.edytujButton.TabIndex = 10;
-            this.edytujButton.Text = "Edytuj";
-            this.edytujButton.UseVisualStyleBackColor = true;
+            this.buttonEdytuj.Location = new System.Drawing.Point(233, 143);
+            this.buttonEdytuj.Name = "buttonEdytuj";
+            this.buttonEdytuj.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdytuj.TabIndex = 10;
+            this.buttonEdytuj.Text = "Edytuj";
+            this.buttonEdytuj.UseVisualStyleBackColor = true;
+            this.buttonEdytuj.Visible = false;
+            this.buttonEdytuj.Click += new System.EventHandler(this.buttonEdytuj_Click);
             // 
-            // usunButton
+            // buttonUsun
             // 
-            this.usunButton.Location = new System.Drawing.Point(152, 142);
-            this.usunButton.Name = "usunButton";
-            this.usunButton.Size = new System.Drawing.Size(75, 23);
-            this.usunButton.TabIndex = 11;
-            this.usunButton.Text = "Usuń";
-            this.usunButton.UseVisualStyleBackColor = true;
+            this.buttonUsun.Location = new System.Drawing.Point(152, 142);
+            this.buttonUsun.Name = "buttonUsun";
+            this.buttonUsun.Size = new System.Drawing.Size(75, 23);
+            this.buttonUsun.TabIndex = 11;
+            this.buttonUsun.Text = "Usuń";
+            this.buttonUsun.UseVisualStyleBackColor = true;
+            this.buttonUsun.Visible = false;
+            this.buttonUsun.Click += new System.EventHandler(this.buttonUsun_Click);
             // 
-            // zapiszNaKonsultacjeButton
+            // buttonZapiszSieNaKonsultacje
             // 
-            this.zapiszNaKonsultacjeButton.Location = new System.Drawing.Point(469, 143);
-            this.zapiszNaKonsultacjeButton.Name = "zapiszNaKonsultacjeButton";
-            this.zapiszNaKonsultacjeButton.Size = new System.Drawing.Size(145, 22);
-            this.zapiszNaKonsultacjeButton.TabIndex = 12;
-            this.zapiszNaKonsultacjeButton.Text = "Zapisz się na konsultacje";
-            this.zapiszNaKonsultacjeButton.UseVisualStyleBackColor = true;
-            this.zapiszNaKonsultacjeButton.Click += new System.EventHandler(this.zapiszNaKonsultacjeButton_Click);
+            this.buttonZapiszSieNaKonsultacje.Location = new System.Drawing.Point(469, 143);
+            this.buttonZapiszSieNaKonsultacje.Name = "buttonZapiszSieNaKonsultacje";
+            this.buttonZapiszSieNaKonsultacje.Size = new System.Drawing.Size(145, 22);
+            this.buttonZapiszSieNaKonsultacje.TabIndex = 12;
+            this.buttonZapiszSieNaKonsultacje.Text = "Zapisz się na konsultacje";
+            this.buttonZapiszSieNaKonsultacje.UseVisualStyleBackColor = true;
+            this.buttonZapiszSieNaKonsultacje.Visible = false;
+            this.buttonZapiszSieNaKonsultacje.Click += new System.EventHandler(this.zapiszNaKonsultacjeButton_Click);
+            // 
+            // buttonDodajWykladowce
+            // 
+            this.buttonDodajWykladowce.Location = new System.Drawing.Point(36, 142);
+            this.buttonDodajWykladowce.Name = "buttonDodajWykladowce";
+            this.buttonDodajWykladowce.Size = new System.Drawing.Size(110, 23);
+            this.buttonDodajWykladowce.TabIndex = 13;
+            this.buttonDodajWykladowce.Text = "Dodaj wykładowcę";
+            this.buttonDodajWykladowce.UseVisualStyleBackColor = true;
+            this.buttonDodajWykladowce.Visible = false;
+            this.buttonDodajWykladowce.Click += new System.EventHandler(this.buttonDodajWykladowce_Click);
             // 
             // pokazListeWykladowcow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(19)))));
             this.ClientSize = new System.Drawing.Size(626, 181);
-            this.Controls.Add(this.zapiszNaKonsultacjeButton);
-            this.Controls.Add(this.usunButton);
-            this.Controls.Add(this.edytujButton);
+            this.Controls.Add(this.buttonDodajWykladowce);
+            this.Controls.Add(this.buttonZapiszSieNaKonsultacje);
+            this.Controls.Add(this.buttonUsun);
+            this.Controls.Add(this.buttonEdytuj);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listaWykladowcow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -216,8 +234,9 @@
         private System.Windows.Forms.Label nickLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label nazwiskoLabel;
-        private System.Windows.Forms.Button edytujButton;
-        private System.Windows.Forms.Button usunButton;
-        private System.Windows.Forms.Button zapiszNaKonsultacjeButton;
+        private System.Windows.Forms.Button buttonEdytuj;
+        private System.Windows.Forms.Button buttonUsun;
+        private System.Windows.Forms.Button buttonZapiszSieNaKonsultacje;
+        private System.Windows.Forms.Button buttonDodajWykladowce;
     }
 }

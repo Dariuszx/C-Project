@@ -14,14 +14,15 @@ namespace ISOS.GUI.Windows
     public partial class pokazListeWykladowcow : Form
     {
         private Engine main;
+        private Wykladowca wykladowcaSelected;
         private int indexSelected = 0;
 
         public pokazListeWykladowcow( Engine main)
         {
             this.main = main;
-            InitializeComponent();
-            KeyPreview = true;
-            uzupelnijListe();
+
+            initialize();
+
             if( listaWykladowcow.Items.Count != 0 ) listaWykladowcow.SetSelected(0, true);
           
         }
@@ -30,62 +31,89 @@ namespace ISOS.GUI.Windows
         {
             this.main = main;
             this.indexSelected = selectedIndex;
-            InitializeComponent();
-            KeyPreview = true;
-            uzupelnijListe();
+
+            initialize();
+
             listaWykladowcow.SetSelected(selectedIndex, true);
         }
 
-        private void uzupelnijListe()
+        private void initialize()
         {
-
-            //Wyświetlam tylko wymagane przyciski 
-            if (!main.loginModul.isDziekanat())
-            {
-                edytujButton.Visible = false;
-                usunButton.Visible = false;
-            }
-
-            foreach (Wykladowca w in main.bazaDanych.getWykladowcy())
-            {
-                listaWykladowcow.Items.Add(w);
-            }
-
-
-
+            InitializeComponent();
+            KeyPreview = true;
+            uzupelnijListeWykladowcow();
+            wykladowcaSelected = main.bazaDanych.getWykladowca(indexSelected);
             pokazInformacje();
+        }
+
+
+        private void uzupelnijListeWykladowcow()
+        {
+            foreach (Wykladowca w in main.bazaDanych.getWykladowcy() )
+            {
+                listaWykladowcow.Items.Add(w.user.name + " " + w.user.surname);
+            }
+
+            if (main.loginModul.isStudent())
+            {
+                buttonZapiszSieNaKonsultacje.Visible = true;
+            }
+            else if (main.loginModul.isDziekanat())
+            {
+                buttonDodajWykladowce.Visible = true;
+                buttonEdytuj.Visible = true;
+                buttonUsun.Visible = true;
+            } 
         }
 
         private void pokazInformacje()
         {
-            Wykladowca w = main.bazaDanych.getWykladowca(indexSelected);
+            if (listaWykladowcow.Items.Count != 0)
+            {
 
-            //Uzupełniam formularz informacji
-            imieLabel.Text = w.user.name;
-            nazwiskoLabel.Text = w.user.surname;
-            emailLabel.Text = w.user.email;
-            nickLabel.Text = w.user.nickname;
+                //Uzupełniam formularz informacji
+                imieLabel.Text = wykladowcaSelected.user.name;
+                nazwiskoLabel.Text = wykladowcaSelected.user.surname;
+                emailLabel.Text = wykladowcaSelected.user.email;
+                nickLabel.Text = wykladowcaSelected.user.nickname;
 
-            if ( w.konsultacje.Count == 0 ) zapiszNaKonsultacjeButton.Visible = false;
-            else zapiszNaKonsultacjeButton.Visible = true;
+                if (wykladowcaSelected.konsultacje.Count == 0 || !main.loginModul.isStudent()) buttonZapiszSieNaKonsultacje.Visible = false;
+                else buttonZapiszSieNaKonsultacje.Visible = true;
+            }
+            else
+            {
+                imieLabel.Text = "brak danych";
+                nazwiskoLabel.Text = "brak danych";
+                emailLabel.Text = "brak danych";
+                nickLabel.Text = "brak danych";
+
+                buttonZapiszSieNaKonsultacje.Visible = false;
+                buttonEdytuj.Visible = false;
+                buttonUsun.Visible = false;
+            }
         }
 
         private void updateIndexSelected()
         {
             indexSelected = listaWykladowcow.SelectedIndex;
+
+            if (indexSelected >= listaWykladowcow.Items.Count || indexSelected < 0 ) indexSelected = 0;
+
+            wykladowcaSelected = main.bazaDanych.getWykladowca(indexSelected);
         }
 
+
+        //?
         private void pokazInformacjeButton_Click(object sender, EventArgs e)
         {
             indexSelected = listaWykladowcow.SelectedIndex;
             pokazInformacje();
         }
 
+
         private void zapiszNaKonsultacjeButton_Click(object sender, EventArgs e)
         {
-            Wykladowca w = main.bazaDanych.getWykladowca(indexSelected);
-
-            pokazListeKonsultacji konsultacjeDialog = new pokazListeKonsultacji(main, w);
+            pokazListeKonsultacji konsultacjeDialog = new pokazListeKonsultacji(main, wykladowcaSelected);
             konsultacjeDialog.ShowDialog(this);
         }
 
@@ -103,5 +131,34 @@ namespace ISOS.GUI.Windows
             }
         }
 
+        private void buttonEdytuj_Click(object sender, EventArgs e)
+        {
+            edytujWykladowce edytujDialog = new edytujWykladowce(main, wykladowcaSelected);
+            edytujDialog.ShowDialog(this);
+            if( listaWykladowcow.Items.Count != 0 ) pokazInformacje();
+        }
+
+        private void buttonDodajWykladowce_Click(object sender, EventArgs e)
+        {
+            edytujWykladowce dodajDialog = new edytujWykladowce(main);
+            dodajDialog.ShowDialog(this);
+
+            listaWykladowcow.Items.Clear();
+            uzupelnijListeWykladowcow();
+            pokazInformacje();
+        }
+
+        private void buttonUsun_Click(object sender, EventArgs e)
+        {
+            if (listaWykladowcow.Items.Count != 0)
+            {
+                main.bazaDanych.usunWykladowce(wykladowcaSelected.getNickname());
+            }
+
+            listaWykladowcow.Items.Clear();
+            uzupelnijListeWykladowcow();
+            updateIndexSelected();
+            pokazInformacje();
+        }
     }
 }

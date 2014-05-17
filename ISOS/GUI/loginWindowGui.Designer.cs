@@ -31,15 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginGui));
             this.loginInput = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.loginLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // loginInput
@@ -61,27 +57,6 @@
             this.passwordLabel.Size = new System.Drawing.Size(39, 13);
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Hasło:";
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.labelTitle.Location = new System.Drawing.Point(11, 11);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(315, 20);
-            this.labelTitle.TabIndex = 5;
-            this.labelTitle.Text = "Internetowy system obsługi studentów";
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.labelDescription.Location = new System.Drawing.Point(12, 44);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(306, 26);
-            this.labelDescription.TabIndex = 6;
-            this.labelDescription.Text = "System obsługi studentów Politechniki Warszawskiej wydziału Elektrycznego.";
             // 
             // passwordInput
             // 
@@ -116,26 +91,17 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(19)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.loginButton);
             this.panel1.Controls.Add(this.passwordInput);
-            this.panel1.Controls.Add(this.loginLabel);
             this.panel1.Controls.Add(this.loginInput);
+            this.panel1.Controls.Add(this.loginLabel);
             this.panel1.Controls.Add(this.passwordLabel);
-            this.panel1.Location = new System.Drawing.Point(368, 320);
+            this.panel1.Location = new System.Drawing.Point(409, 303);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(231, 90);
             this.panel1.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.labelDescription);
-            this.panel2.Controls.Add(this.labelTitle);
-            this.panel2.Location = new System.Drawing.Point(314, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 86);
-            this.panel2.TabIndex = 11;
             // 
             // loginGui
             // 
@@ -143,9 +109,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BackgroundImage = global::ISOS.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(664, 441);
-            this.Controls.Add(this.panel2);
+            this.BackgroundImage = global::ISOS.Properties.Resources.background2;
+            this.ClientSize = new System.Drawing.Size(676, 423);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -156,8 +121,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginGui_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -166,13 +129,10 @@
 
         private System.Windows.Forms.TextBox loginInput;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
     }
 }
 

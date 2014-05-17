@@ -77,7 +77,6 @@ namespace ISOS.Modules
             return null;
         }
 
-        //Zwraca indeks danego wykładowcy w tablicy ArrayList
         public int getWykladowcaIndex(String wykladowcaNick)
         {
             int index = 0;
@@ -152,48 +151,30 @@ namespace ISOS.Modules
             }
         }
 
-        /**
-         * Usuwanie 
-         */ 
-
-        public void usunWykladowce(String wykladowcaNick)
+        public void usunWykladowce(String nickname)
         {
+            ArrayList listaPrzedmiotowString = new ArrayList();
 
-            //Wypisuje wszystkich studentów z przedmiotu, który prowadził przedmiot
             foreach (Przedmiot p in przedmioty)
             {
-                if (p.wykladowca.user.nickname.Equals(wykladowcaNick))
-                {
-                    foreach (Student s in students)
-                    {
-                        if (s.getPrzedmiotZapisany(p.id) != null)
-                        {
-                            s.wypiszZPrzedmiotu(p.id);
-                            s.usunDziennikOcen(p.id);
-                        }
-                    }
-                }
+                if (p.getWykladowcaNickname().Equals(nickname)) listaPrzedmiotowString.Add(p.id); 
             }
 
-            //Wypisuje wszystkich studentów z konsultacji do przedmiotów
-            foreach (Konsultacje k in konsultacje)
+            foreach (String id in listaPrzedmiotowString )
             {
-                if (k.przedmiot.wykladowca.user.nickname.Equals(wykladowcaNick))
-                {
-                    foreach (Student s in students)
-                    {
-                        if (s.getKonsultacjeZapisany(k.przedmiot.id) != null) s.wypiszZKonsultacji(k.przedmiot.id);
-                    }
-                }
+                usunPrzedmiot(id);
             }
 
             int index = 0;
 
             foreach (Wykladowca w in wykladowcy)
             {
-                if (w.user.nickname.Equals(wykladowcaNick)) wykladowcy.RemoveAt(index);
+                if( w.getNickname().Equals(nickname)) break;
                 index++;
             }
+
+            wykladowcy.RemoveAt(index);
+            usunUser(nickname);
 
         }
 
@@ -218,9 +199,11 @@ namespace ISOS.Modules
 
             foreach (Przedmiot p in przedmioty)
             {
-                if (p.id.Equals(przedmiotid)) przedmioty.RemoveAt(index);
+                if (p.id.Equals(przedmiotid)) break;
                 index++;
             }
+
+            przedmioty.RemoveAt(index);
         }
 
         public void usunStudenta(String nick)
@@ -233,9 +216,19 @@ namespace ISOS.Modules
             }
         }
 
-        /**
-         * Funkcjonalność Studenta
-         */
+        public void usunUser(String nick)
+        {
+            int index = 0;
+
+            foreach (User u in users)
+            {
+                if (u.nickname.Equals(nick)) break;
+                index++;
+            }
+
+            users.RemoveAt(index);
+        }
+
         public void studentZapiszNaPrzedmiot(String nick, String przedmiotId)
         {
             getStudent(nick).przedmiotyZapisane.Add(getPrzedmiot(przedmiotId));
@@ -262,6 +255,5 @@ namespace ISOS.Modules
         {
             return getStudent(nick).getKonsultacjeZapisany(przedmiotId);
         }
-
     }
 }

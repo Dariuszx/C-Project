@@ -21,6 +21,8 @@ namespace ISOS.Modules
             bazaDanych.addUser(new Data.User("dariuszDybka", "haslo123", "student", "Dariusz", "Dybka", "marazmad.01@gmail.com"));
             bazaDanych.addStudent(bazaDanych.getUser("dariuszDybka"));
 
+            bazaDanych.addUser(new Data.User("marazmad", "haslo", "dziekanat", "Jan", "Kowalski", "jkowal@ee.pw.edu.pl"));
+
             bazaDanych.addUser(new Data.User("dybkad", "haslo", "student", "Dariusz", "Dybka", "marazmad.01@gmail.com"));
             bazaDanych.addStudent(bazaDanych.getUser("dybkad"));
 

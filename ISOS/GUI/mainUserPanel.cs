@@ -11,21 +11,49 @@ using ISOS.GUI.Windows;
 
 namespace ISOS.GUI
 {
-    public partial class studentPanelGui : Form
+    public partial class mainUserPanel : Form
     {
         private Engine main;
 
-        public studentPanelGui( Engine main )
+        public mainUserPanel( Engine main )
         {
             this.main = main;
 
             InitializeComponent();
 
             KeyPreview = true;
+
+            uzupelnijInformacjeUzytkownika(); //Uzupełnim informacje o zalogowanym użytkowniku
+            wyswietlOpcje();
+        }
+
+        private void wyswietlOpcje()
+        {
+            if (main.loginModul.isDziekanat()) //Zalogowano jako dziekanat
+            {
+                labelTitle.Text = "Panel dla dziekanatu";
+                buttonPokazListePrzedmiotow.Visible = true;
+                buttonPokazListeWykladowcow.Visible = true;
+            }
+            else if (main.loginModul.isStudent()) //Zalogowano jako student
+            {
+                labelTitle.Text = "Panel studenta";
+                panelZapisanoNaPrzedmioty.Visible = true;
+                buttonPokazListePrzedmiotow.Visible = true;
+                buttonPokazListeWykladowcow.Visible = true;
+            }
+            else if (main.loginModul.isWykladowca())
+            {
+                labelTitle.Text = "Panel wykładowcy";
+            }
+        }
+
+        private void uzupelnijInformacjeUzytkownika()
+        {
             imieNazwiskoLabel.Text = main.loginModul.zalogowanyUzytkownik.name + " " + main.loginModul.zalogowanyUzytkownik.surname;
-            nazwaUzytkownikaLabel.Text = main.loginModul.zalogowanyUzytkownik.nickname;
+            nazwaUzytkownikaLabel.Text = main.loginModul.getNicknameUserLoggedIn();
             emailLabel.Text = main.loginModul.zalogowanyUzytkownik.email;
-            nickStatusLabel.Text = main.loginModul.zalogowanyUzytkownik.nickname;
+            nickStatusLabel.Text = main.loginModul.getNicknameUserLoggedIn();
         }
 
         private void studentPanelGui_FormClosed(object sender, FormClosedEventArgs e)

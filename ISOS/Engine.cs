@@ -41,21 +41,8 @@ namespace ISOS
 
         public void modulUzytkownika()
         {
-            if (loginModul.zalogowanyUzytkownik.permissions.Equals("student"))
-            {
-                Application.Run(new GUI.studentPanelGui( this ));
-                loginModul.zalogowanyUzytkownik = null;
-            }
-            else if (loginModul.zalogowanyUzytkownik.permissions.Equals("dziekan"))
-            {
-                //TODO
-            }
-            else if (loginModul.zalogowanyUzytkownik.permissions.Equals("panizdziekanatu"))
-            {
-                //TODO
-            }
+            Application.Run(new GUI.mainUserPanel(this));
+            loginModul.zalogowanyUzytkownik = null;
         }
-
-
     }
 }

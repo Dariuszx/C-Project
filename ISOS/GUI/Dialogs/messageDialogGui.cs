@@ -18,11 +18,20 @@ namespace ISOS.GUI
             InitializeComponent();
             titleLabel.Text = title;
             messageLabel.Text = message;
+            KeyPreview = true;
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void messageDialogGui_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
     }

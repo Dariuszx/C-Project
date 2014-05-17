@@ -39,6 +39,7 @@
             this.buttonZapisz = new System.Windows.Forms.Button();
             this.buttonWypisz = new System.Windows.Forms.Button();
             this.buttonEdytuj = new System.Windows.Forms.Button();
+            this.buttonDodaj = new System.Windows.Forms.Button();
             this.buttonUsun = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.listaPrzedmiotow.FormattingEnabled = true;
             this.listaPrzedmiotow.Location = new System.Drawing.Point(12, 12);
             this.listaPrzedmiotow.Name = "listaPrzedmiotow";
-            this.listaPrzedmiotow.Size = new System.Drawing.Size(269, 288);
+            this.listaPrzedmiotow.Size = new System.Drawing.Size(269, 145);
             this.listaPrzedmiotow.TabIndex = 0;
             this.listaPrzedmiotow.SelectedIndexChanged += new System.EventHandler(this.listaPrzedmiotow_SelectedIndexChanged);
             // 
@@ -68,7 +69,7 @@
             // labelProwadzacyNazwa
             // 
             this.labelProwadzacyNazwa.AutoSize = true;
-            this.labelProwadzacyNazwa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.labelProwadzacyNazwa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.labelProwadzacyNazwa.Location = new System.Drawing.Point(378, 38);
             this.labelProwadzacyNazwa.Name = "labelProwadzacyNazwa";
             this.labelProwadzacyNazwa.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -81,7 +82,7 @@
             // 
             this.labelNazwaPrzedmiotu.AutoSize = true;
             this.labelNazwaPrzedmiotu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelNazwaPrzedmiotu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.labelNazwaPrzedmiotu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.labelNazwaPrzedmiotu.Location = new System.Drawing.Point(378, 14);
             this.labelNazwaPrzedmiotu.Name = "labelNazwaPrzedmiotu";
             this.labelNazwaPrzedmiotu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -114,8 +115,8 @@
             // labelKonsultacjeTakNie
             // 
             this.labelKonsultacjeTakNie.AutoSize = true;
-            this.labelKonsultacjeTakNie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.labelKonsultacjeTakNie.Location = new System.Drawing.Point(375, 59);
+            this.labelKonsultacjeTakNie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.labelKonsultacjeTakNie.Location = new System.Drawing.Point(379, 59);
             this.labelKonsultacjeTakNie.Name = "labelKonsultacjeTakNie";
             this.labelKonsultacjeTakNie.Size = new System.Drawing.Size(28, 13);
             this.labelKonsultacjeTakNie.TabIndex = 8;
@@ -123,59 +124,78 @@
             // 
             // buttonPokazProfilWykladowcy
             // 
-            this.buttonPokazProfilWykladowcy.Location = new System.Drawing.Point(382, 117);
+            this.buttonPokazProfilWykladowcy.Location = new System.Drawing.Point(382, 115);
             this.buttonPokazProfilWykladowcy.Name = "buttonPokazProfilWykladowcy";
             this.buttonPokazProfilWykladowcy.Size = new System.Drawing.Size(136, 23);
             this.buttonPokazProfilWykladowcy.TabIndex = 9;
             this.buttonPokazProfilWykladowcy.Text = "Pokaż profil wykładowcy";
             this.buttonPokazProfilWykladowcy.UseVisualStyleBackColor = true;
+            this.buttonPokazProfilWykladowcy.Visible = false;
             this.buttonPokazProfilWykladowcy.Click += new System.EventHandler(this.buttonPokazProfilWykladowcy_Click);
             // 
             // buttonZapisz
             // 
-            this.buttonZapisz.Location = new System.Drawing.Point(443, 88);
+            this.buttonZapisz.Location = new System.Drawing.Point(443, 86);
             this.buttonZapisz.Name = "buttonZapisz";
             this.buttonZapisz.Size = new System.Drawing.Size(75, 23);
             this.buttonZapisz.TabIndex = 10;
             this.buttonZapisz.Text = "Zapisz";
             this.buttonZapisz.UseVisualStyleBackColor = true;
+            this.buttonZapisz.Visible = false;
             this.buttonZapisz.Click += new System.EventHandler(this.buttonZapisz_Click);
             // 
             // buttonWypisz
             // 
-            this.buttonWypisz.Location = new System.Drawing.Point(443, 88);
+            this.buttonWypisz.Location = new System.Drawing.Point(443, 86);
             this.buttonWypisz.Name = "buttonWypisz";
             this.buttonWypisz.Size = new System.Drawing.Size(75, 23);
             this.buttonWypisz.TabIndex = 11;
             this.buttonWypisz.Text = "Wypisz";
             this.buttonWypisz.UseVisualStyleBackColor = true;
+            this.buttonWypisz.Visible = false;
             this.buttonWypisz.Click += new System.EventHandler(this.buttonWypisz_Click);
             // 
             // buttonEdytuj
             // 
-            this.buttonEdytuj.Location = new System.Drawing.Point(362, 88);
+            this.buttonEdytuj.Location = new System.Drawing.Point(443, 86);
             this.buttonEdytuj.Name = "buttonEdytuj";
             this.buttonEdytuj.Size = new System.Drawing.Size(75, 23);
             this.buttonEdytuj.TabIndex = 12;
             this.buttonEdytuj.Text = "Edytuj";
             this.buttonEdytuj.UseVisualStyleBackColor = true;
+            this.buttonEdytuj.Visible = false;
+            this.buttonEdytuj.Click += new System.EventHandler(this.buttonEdytuj_Click);
+            // 
+            // buttonDodaj
+            // 
+            this.buttonDodaj.Location = new System.Drawing.Point(175, 163);
+            this.buttonDodaj.Name = "buttonDodaj";
+            this.buttonDodaj.Size = new System.Drawing.Size(106, 23);
+            this.buttonDodaj.TabIndex = 13;
+            this.buttonDodaj.Text = "Dodaj przedmiot";
+            this.buttonDodaj.UseVisualStyleBackColor = true;
+            this.buttonDodaj.Visible = false;
+            this.buttonDodaj.Click += new System.EventHandler(this.buttonDodaj_Click);
             // 
             // buttonUsun
             // 
-            this.buttonUsun.Location = new System.Drawing.Point(362, 88);
+            this.buttonUsun.Location = new System.Drawing.Point(362, 86);
             this.buttonUsun.Name = "buttonUsun";
             this.buttonUsun.Size = new System.Drawing.Size(75, 23);
-            this.buttonUsun.TabIndex = 13;
+            this.buttonUsun.TabIndex = 14;
             this.buttonUsun.Text = "Usuń";
             this.buttonUsun.UseVisualStyleBackColor = true;
+            this.buttonUsun.Visible = false;
+            this.buttonUsun.Click += new System.EventHandler(this.buttonUsun_Click);
             // 
             // pokazListePrzedmiotow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(539, 312);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(19)))));
+            this.ClientSize = new System.Drawing.Size(528, 192);
             this.Controls.Add(this.buttonUsun);
+            this.Controls.Add(this.buttonDodaj);
             this.Controls.Add(this.buttonEdytuj);
             this.Controls.Add(this.buttonWypisz);
             this.Controls.Add(this.buttonZapisz);
@@ -210,6 +230,7 @@
         private System.Windows.Forms.Button buttonZapisz;
         private System.Windows.Forms.Button buttonWypisz;
         private System.Windows.Forms.Button buttonEdytuj;
+        private System.Windows.Forms.Button buttonDodaj;
         private System.Windows.Forms.Button buttonUsun;
     }
 }
