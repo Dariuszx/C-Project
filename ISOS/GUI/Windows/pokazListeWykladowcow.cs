@@ -133,14 +133,14 @@ namespace ISOS.GUI.Windows
 
         private void buttonEdytuj_Click(object sender, EventArgs e)
         {
-            edytujWykladowce edytujDialog = new edytujWykladowce(main, wykladowcaSelected);
+            edytujStudentWykladowca edytujDialog = new edytujStudentWykladowca(main, wykladowcaSelected);
             edytujDialog.ShowDialog(this);
             if( listaWykladowcow.Items.Count != 0 ) pokazInformacje();
         }
 
         private void buttonDodajWykladowce_Click(object sender, EventArgs e)
         {
-            edytujWykladowce dodajDialog = new edytujWykladowce(main);
+            edytujStudentWykladowca dodajDialog = new edytujStudentWykladowca(main, "wykladowca");
             dodajDialog.ShowDialog(this);
 
             listaWykladowcow.Items.Clear();

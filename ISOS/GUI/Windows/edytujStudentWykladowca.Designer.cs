@@ -1,6 +1,6 @@
 ﻿namespace ISOS.GUI.Windows
 {
-    partial class edytujWykladowce
+    partial class edytujStudentWykladowca
     {
         /// <summary>
         /// Required designer variable.
@@ -134,7 +134,6 @@
             this.buttonZapisz.UseVisualStyleBackColor = true;
             this.buttonZapisz.Visible = false;
             this.buttonZapisz.Click += new System.EventHandler(this.buttonZapisz_Click);
-            this.buttonZapisz.Enter += new System.EventHandler(this.buttonDodaj_Click);
             // 
             // buttonDodaj
             // 
@@ -156,6 +155,7 @@
             this.buttonWyswietlListePrzedmiotow.TabIndex = 7;
             this.buttonWyswietlListePrzedmiotow.Text = "Wyświetl listę przedmiotów";
             this.buttonWyswietlListePrzedmiotow.UseVisualStyleBackColor = true;
+            this.buttonWyswietlListePrzedmiotow.Visible = false;
             // 
             // label5
             // 
@@ -177,7 +177,7 @@
             this.inputNick.Size = new System.Drawing.Size(127, 20);
             this.inputNick.TabIndex = 3;
             // 
-            // edytujWykladowce
+            // edytujStudentWykladowca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,10 +197,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "edytujWykladowce";
+            this.Name = "edytujStudentWykladowca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edytuj/Dodaj wykładowcę";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edytujWykladowce_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edytujStudentWykladowca_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

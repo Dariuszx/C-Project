@@ -48,6 +48,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelZapisanoNaPrzedmioty = new System.Windows.Forms.Panel();
+            this.buttonPokazListeStudentow = new System.Windows.Forms.Button();
             this.statusBar.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -248,6 +249,19 @@
             this.panelZapisanoNaPrzedmioty.TabIndex = 16;
             this.panelZapisanoNaPrzedmioty.Visible = false;
             // 
+            // buttonPokazListeStudentow
+            // 
+            this.buttonPokazListeStudentow.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonPokazListeStudentow.ForeColor = System.Drawing.Color.Black;
+            this.buttonPokazListeStudentow.Location = new System.Drawing.Point(36, 213);
+            this.buttonPokazListeStudentow.Name = "buttonPokazListeStudentow";
+            this.buttonPokazListeStudentow.Size = new System.Drawing.Size(158, 23);
+            this.buttonPokazListeStudentow.TabIndex = 17;
+            this.buttonPokazListeStudentow.Text = "Pokaż liste studentów";
+            this.buttonPokazListeStudentow.UseVisualStyleBackColor = true;
+            this.buttonPokazListeStudentow.Visible = false;
+            this.buttonPokazListeStudentow.Click += new System.EventHandler(this.buttonPokazListeStudentow_Click);
+            // 
             // mainUserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +269,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(19)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(655, 284);
+            this.Controls.Add(this.buttonPokazListeStudentow);
             this.Controls.Add(this.panelZapisanoNaPrzedmioty);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonPokazListePrzedmiotow);
@@ -305,5 +320,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelZapisanoNaPrzedmioty;
+        private System.Windows.Forms.Button buttonPokazListeStudentow;
     }
 }

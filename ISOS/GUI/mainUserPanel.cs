@@ -34,6 +34,7 @@ namespace ISOS.GUI
                 labelTitle.Text = "Panel dla dziekanatu";
                 buttonPokazListePrzedmiotow.Visible = true;
                 buttonPokazListeWykladowcow.Visible = true;
+                buttonPokazListeStudentow.Visible = true;
             }
             else if (main.loginModul.isStudent()) //Zalogowano jako student
             {
@@ -45,6 +46,7 @@ namespace ISOS.GUI
             else if (main.loginModul.isWykladowca())
             {
                 labelTitle.Text = "Panel wykładowcy";
+                buttonPokazListeStudentow.Visible = true;
             }
         }
 
@@ -98,6 +100,11 @@ namespace ISOS.GUI
         private void studentPanelGui_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonPokazListeStudentow_Click(object sender, EventArgs e)
+        {
+            new pokazListeStudentow(main).ShowDialog(this);
         }
 
     }

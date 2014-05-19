@@ -97,11 +97,17 @@
     <Compile Include="GUI\Windows\edytujDodajPrzedmiot.Designer.cs">
       <DependentUpon>edytujDodajPrzedmiot.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Windows\edytujWykladowce.cs">
+    <Compile Include="GUI\Windows\edytujStudentWykladowca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Windows\edytujWykladowce.Designer.cs">
-      <DependentUpon>edytujWykladowce.cs</DependentUpon>
+    <Compile Include="GUI\Windows\edytujStudentWykladowca.Designer.cs">
+      <DependentUpon>edytujStudentWykladowca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\pokazListeStudentow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\pokazListeStudentow.Designer.cs">
+      <DependentUpon>pokazListeStudentow.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Windows\pokazListeZapisanychPrzedmiotow.cs">
       <SubType>Form</SubType>
@@ -147,11 +153,14 @@
     <EmbeddedResource Include="GUI\Windows\edytujDodajPrzedmiot.resx">
       <DependentUpon>edytujDodajPrzedmiot.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Windows\edytujWykladowce.resx">
-      <DependentUpon>edytujWykladowce.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Windows\edytujStudentWykladowca.resx">
+      <DependentUpon>edytujStudentWykladowca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Windows\pokazListePrzedmiotow.resx">
       <DependentUpon>pokazListePrzedmiotow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\pokazListeStudentow.resx">
+      <DependentUpon>pokazListeStudentow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Windows\pokazListeWykladowcow.resx">
       <DependentUpon>pokazListeWykladowcow.cs</DependentUpon>

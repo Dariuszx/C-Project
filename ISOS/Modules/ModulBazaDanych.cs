@@ -55,6 +55,17 @@ namespace ISOS.Modules
             return null;
         }
 
+        public Student getStudent(int index)
+        {
+            int i=0;
+            foreach (Student s in students)
+            {
+                if (i == index) return s;
+                i++;
+            }
+            return null;
+        }
+
         public Wykladowca getWykladowca(int index)
         {
             int i = 0;
@@ -211,9 +222,13 @@ namespace ISOS.Modules
             int index = 0;
             foreach (Student s in students)
             {
-                if (s.user.nickname.Equals(nick)) students.RemoveAt(index);
+                if (s.user.nickname.Equals(nick)) break;
                 index++;
             }
+
+            students.RemoveAt(index);
+
+            usunUser(nick);
         }
 
         public void usunUser(String nick)
