@@ -41,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listaStudentow = new System.Windows.Forms.ListBox();
+            this.buttonZapiszNaPrzedmiot = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,12 +188,24 @@
             this.listaStudentow.TabIndex = 14;
             this.listaStudentow.SelectedIndexChanged += new System.EventHandler(this.listaStudentow_SelectedIndexChanged);
             // 
+            // buttonZapiszNaPrzedmiot
+            // 
+            this.buttonZapiszNaPrzedmiot.Location = new System.Drawing.Point(500, 137);
+            this.buttonZapiszNaPrzedmiot.Name = "buttonZapiszNaPrzedmiot";
+            this.buttonZapiszNaPrzedmiot.Size = new System.Drawing.Size(114, 23);
+            this.buttonZapiszNaPrzedmiot.TabIndex = 20;
+            this.buttonZapiszNaPrzedmiot.Text = "Zapisz na przedmiot";
+            this.buttonZapiszNaPrzedmiot.UseVisualStyleBackColor = true;
+            this.buttonZapiszNaPrzedmiot.Visible = false;
+            this.buttonZapiszNaPrzedmiot.Click += new System.EventHandler(this.buttonZapiszNaPrzedmiot_Click);
+            // 
             // pokazListeStudentow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(17)))), ((int)(((byte)(19)))));
             this.ClientSize = new System.Drawing.Size(626, 169);
+            this.Controls.Add(this.buttonZapiszNaPrzedmiot);
             this.Controls.Add(this.buttonDodajStudenta);
             this.Controls.Add(this.buttonUsun);
             this.Controls.Add(this.buttonEdytuj);
@@ -224,5 +237,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listaStudentow;
+        private System.Windows.Forms.Button buttonZapiszNaPrzedmiot;
     }
 }

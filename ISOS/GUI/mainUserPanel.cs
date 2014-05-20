@@ -46,6 +46,7 @@ namespace ISOS.GUI
             else if (main.loginModul.isWykladowca())
             {
                 labelTitle.Text = "Panel wykładowcy";
+                buttonPokazListePrzedmiotow.Visible = true;
                 buttonPokazListeStudentow.Visible = true;
             }
         }
@@ -79,8 +80,16 @@ namespace ISOS.GUI
 
         private void pokazListePrzedmiotowButton_Click(object sender, EventArgs e)
         {
-            pokazListePrzedmiotow oknoListaPrzedmiotow = new pokazListePrzedmiotow(main);
-            oknoListaPrzedmiotow.ShowDialog(this);
+            if (main.loginModul.isWykladowca())
+            {
+                pokazListePrzedmiotow oknoListaPrzedmiotow = new pokazListePrzedmiotow(main, main.loginModul.getNicknameUserLoggedIn());
+                oknoListaPrzedmiotow.ShowDialog(this);
+            }
+            else
+            {
+                pokazListePrzedmiotow oknoListaPrzedmiotow = new pokazListePrzedmiotow(main);
+                oknoListaPrzedmiotow.ShowDialog(this);
+            }
         }
 
         private void studentPanelGui_KeyDown(object sender, KeyEventArgs e)

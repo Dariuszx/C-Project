@@ -44,12 +44,18 @@ namespace ISOS.GUI.Windows
 
         private void pokazInformacje()
         {
-            buttonDodajStudenta.Visible = true;
+
+            if (main.loginModul.isDziekanat())
+            {
+                buttonDodajStudenta.Visible = true;
+                buttonEdytuj.Visible = true;
+                buttonUsun.Visible = true;
+                buttonDodajStudenta.Visible = true;
+            }
 
             if (main.bazaDanych.students.Count != 0)
             {
-                buttonEdytuj.Visible = true;
-                buttonUsun.Visible = true;
+                buttonZapiszNaPrzedmiot.Visible = true;
 
                 imieLabel.Text = studentSelected.user.name;
                 nazwiskoLabel.Text = studentSelected.user.surname;
@@ -58,6 +64,7 @@ namespace ISOS.GUI.Windows
             }
             else
             {
+
                 imieLabel.Text = "brak danych";
                 nazwiskoLabel.Text = "brak danych";
                 emailLabel.Text = "brak danych";
@@ -117,6 +124,11 @@ namespace ISOS.GUI.Windows
                 pokazInformacje();
                 uzupelnijListeStudentow();
             }
+        }
+
+        private void buttonZapiszNaPrzedmiot_Click(object sender, EventArgs e)
+        {
+            new pokazListePrzedmiotow(main, main.loginModul.getNicknameUserLoggedIn(), studentSelected).ShowDialog(this);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace ISOS.GUI.Windows
         private Engine main;
         private int indexSelected = 0;
         private Przedmiot przedmiotSelected = null;
+        private Student studentSelected = null;
         private ArrayList przedmiotyWykladowcy;
 
         public pokazListePrzedmiotow( Engine main )
@@ -55,6 +56,19 @@ namespace ISOS.GUI.Windows
             if( listaPrzedmiotow.Items.Count != 0 ) listaPrzedmiotow.SetSelected(indexSelected, true);
         }
 
+        public pokazListePrzedmiotow(Engine main, String wykladowcaNick, Student student)
+        {
+            this.main = main;
+            this.studentSelected = student;
+
+
+            InitializeComponent();
+            KeyPreview = true;
+            uzupelnijListePrzedmiotow(wykladowcaNick);
+            pokazInformacjePrzedmiotu();
+            if (listaPrzedmiotow.Items.Count != 0) listaPrzedmiotow.SetSelected(indexSelected, true);
+        }
+
         private bool uzupelnijListePrzedmiotow()
         {
             if (main.bazaDanych.przedmioty.Count == 0) return false;
@@ -76,15 +90,17 @@ namespace ISOS.GUI.Windows
         {
             przedmiotyWykladowcy = new ArrayList();
 
+            listaPrzedmiotow.Items.Clear();
+
             foreach (Przedmiot p in main.bazaDanych.przedmioty)
             {
                 if (p.getWykladowcaNickname().Equals(nickname))
                 {
                     przedmiotyWykladowcy.Add(p);
+                    if (przedmiotyWykladowcy.Count == 1) przedmiotSelected = p;
                     listaPrzedmiotow.Items.Add(p.nazwa);
                 }
             }
-
             return true;
         }
 
@@ -93,9 +109,14 @@ namespace ISOS.GUI.Windows
             if (listaPrzedmiotow.Items.Count != 0)
             {
 
-                if (main.loginModul.isStudent())
+                if (main.loginModul.isStudent() || studentSelected != null)
                 {
-                    if (main.bazaDanych.getStudent(main.loginModul.getNicknameUserLoggedIn()).getPrzedmiotZapisany(przedmiotSelected.id) == null)
+                    String nick;
+
+                    if (studentSelected != null) nick = studentSelected.user.nickname;
+                    else nick = main.loginModul.getNicknameUserLoggedIn();
+
+                    if (main.bazaDanych.getStudent(nick).getPrzedmiotZapisany(przedmiotSelected.id) == null)
                     {
                         buttonZapisz.Visible = true;
                         buttonWypisz.Visible = false;
@@ -165,15 +186,24 @@ namespace ISOS.GUI.Windows
 
         private void buttonWypisz_Click(object sender, EventArgs e)
         {
-            System.Console.WriteLine(przedmiotSelected.id);
-            main.bazaDanych.studentWypiszZPrzedmiotu(main.loginModul.getNicknameUserLoggedIn(), przedmiotSelected.id);
+            String nick;
+
+            if (studentSelected != null) nick = studentSelected.user.nickname;
+            else nick = main.loginModul.getNicknameUserLoggedIn();
+
+            main.bazaDanych.studentWypiszZPrzedmiotu(nick, przedmiotSelected.id);
             buttonWypisz.Visible = false;
             buttonZapisz.Visible = true;
         }
 
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
-            main.bazaDanych.studentZapiszNaPrzedmiot(main.loginModul.getNicknameUserLoggedIn(), przedmiotSelected.id);
+            String nick;
+
+            if (studentSelected != null) nick = studentSelected.user.nickname;
+            else nick = main.loginModul.getNicknameUserLoggedIn();
+
+            main.bazaDanych.studentZapiszNaPrzedmiot(nick, przedmiotSelected.id);
             buttonZapisz.Visible = false;
             buttonWypisz.Visible = true;
         }
